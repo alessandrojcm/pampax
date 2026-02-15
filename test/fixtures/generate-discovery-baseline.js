@@ -98,8 +98,8 @@ function printUsage() {
   console.log("Usage: node test/fixtures/generate-discovery-baseline.js <repo-path> [--out <file>]");
   console.log("");
   console.log("Examples:");
-  console.log("  node test/fixtures/generate-discovery-baseline.js ./test/fixtures/small");
-  console.log("  node test/fixtures/generate-discovery-baseline.js ./test/fixtures/small --out instructions/stage2_artifacts/03_fixture_paths_small.txt");
+  console.log("  node test/fixtures/generate-discovery-baseline.js .");
+  console.log("  node test/fixtures/generate-discovery-baseline.js ./test-repos/fastify --out instructions/stage2_artifacts/04_fixture_paths_medium.txt");
 }
 
 async function buildBaselineList(repoPath) {

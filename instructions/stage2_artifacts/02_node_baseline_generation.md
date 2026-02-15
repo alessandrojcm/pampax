@@ -28,21 +28,23 @@ This harness emits canonical file lists matching current Node discovery behavior
 Print baseline list to stdout:
 
 ```bash
-npm run baseline:discovery -- ./test/fixtures/small
+npm run baseline:discovery -- .
 ```
 
 Write baseline list to artifact file:
 
 ```bash
-npm run baseline:discovery -- ./test/fixtures/small --out instructions/stage2_artifacts/03_fixture_paths_small.txt
+npm run baseline:discovery -- . --out instructions/stage2_artifacts/03_fixture_paths_small.txt
 ```
 
 Generate medium/large files:
 
 ```bash
-npm run baseline:discovery -- ./test/fixtures/medium --out instructions/stage2_artifacts/04_fixture_paths_medium.txt
-npm run baseline:discovery -- ./test/fixtures/large --out instructions/stage2_artifacts/05_fixture_paths_large.txt
+npm run baseline:discovery -- ./test-repos/fastify --out instructions/stage2_artifacts/04_fixture_paths_medium.txt
+npm run baseline:discovery -- ./test-repos/next.js --out instructions/stage2_artifacts/05_fixture_paths_large.txt
 ```
+
+Important: run baselines against source repositories. Do not target `test/fixtures/*` artifact directories.
 
 ---
 
@@ -65,8 +67,8 @@ These files are the Node-side truth set for parity tests until updated by an exp
 Recommended quick check:
 
 ```bash
-npm run baseline:discovery -- ./test/fixtures/small --out /tmp/stage2-small-run1.txt
-npm run baseline:discovery -- ./test/fixtures/small --out /tmp/stage2-small-run2.txt
+npm run baseline:discovery -- . --out /tmp/stage2-small-run1.txt
+npm run baseline:discovery -- . --out /tmp/stage2-small-run2.txt
 cmp /tmp/stage2-small-run1.txt /tmp/stage2-small-run2.txt
 ```
 
