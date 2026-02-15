@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  pampax-fixture-gen:
+    build:
+      context: ../..
+      dockerfile: test/fixtures/Dockerfile
+    container_name: pampax-fixture-generator
+    working_dir: /pampax
+    volumes:
+      # Mount the entire repo (read-write for fixture generation)
+      - ../..:/pampax
+      # Exclude node_modules to use container's compiled binaries
+      - /pampax/node_modules
+      # Mount test repos if provided externally
+      - ${TEST_REPO_PATH:-./test-repos}:/test-repos:ro
+    environment:
+      - NODE_ENV=production
+      - PAMPAX_PROVIDER=transformers
+    command: /bin/bash
+    stdin_open: true
+    tty: true

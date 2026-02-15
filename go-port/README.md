@@ -44,20 +44,16 @@ github.com/alessandrojcm/pampax-go/
 
 ## Development Status
 
-**Stage 1A - Project Skeleton:** ✅ Complete
-- [x] Directory structure created
-- [x] go.mod initialized
-- [x] sqlc.yaml configured
-- [x] Dependencies installed
-- [x] .gitignore updated
+- Stage 1A (Project Skeleton): complete
+- Stage 1B (Tooling): complete
+- Stage 2A (Codemap Ordered Map & Serialization): complete
+- Stage 2B (Chunk Storage & Crypto): complete
+- Stage 2C (DB Schema + sqlc Queries): complete
+- Stage 3A (CLI Commands): complete
+- Stage 3B (Config & Logging): complete
+- Stage 4A (Provider Stubs): complete
 
-**Stage 1B - Tooling Configuration:** ✅ Complete
-- [x] sqlc CLI tool installed (v1.30.0)
-- [x] dbmate CLI tool installed (v2.29.5)
-- [x] dbmate configuration created (.env file)
-- [x] Makefile with development commands
-
-**Next:** Stage 2A - Codemap Ordered Map & Serialization
+**Next:** Stage 4B - Search Stub
 
 ## Installation
 

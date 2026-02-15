@@ -2,7 +2,7 @@ package main
 
 import "github.com/spf13/cobra"
 
-func newUpdateCommand(_ *globalOptions) *cobra.Command {
+func newUpdateCommand(globals *globalOptions) *cobra.Command {
 	opts := &reindexOptions{}
 
 	cmd := &cobra.Command{
@@ -10,7 +10,7 @@ func newUpdateCommand(_ *globalOptions) *cobra.Command {
 		Short: "Reindex a project (full reindex for Stage 1)",
 		Args:  cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			return runReindexScaffold(cmd, args, "update", opts)
+			return runReindexScaffold(cmd, args, "update", opts, globals)
 		},
 	}
 

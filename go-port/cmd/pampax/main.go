@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/alessandrojcm/pampax-go/internal/config"
+	"github.com/alessandrojcm/pampax-go/internal/utils"
+	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 )
 
@@ -11,12 +14,15 @@ type globalOptions struct {
 	pretty     bool
 	verbose    bool
 	configFile string
+	config     *config.Config
 }
 
 func main() {
+	utils.SetupLogger(utils.LoggingOptions{Writer: os.Stderr})
+
 	rootCmd := NewRootCommand()
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintln(os.Stderr, err)
+		log.Error().Err(err).Msg("command failed")
 		os.Exit(1)
 	}
 }
@@ -25,9 +31,25 @@ func NewRootCommand() *cobra.Command {
 	opts := &globalOptions{}
 
 	rootCmd := &cobra.Command{
-		Use:          "pampax",
-		Short:        "PAMPAX semantic code memory CLI",
-		SilenceUsage: true,
+		Use:           "pampax",
+		Short:         "PAMPAX semantic code memory CLI",
+		SilenceUsage:  true,
+		SilenceErrors: true,
+		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
+			loadedConfig, err := config.Load(opts.configFile)
+			if err != nil {
+				return err
+			}
+			opts.config = loadedConfig
+
+			utils.SetupLogger(utils.LoggingOptions{
+				Pretty:  opts.pretty,
+				Verbose: opts.verbose,
+				Writer:  cmd.OutOrStdout(),
+			})
+
+			return nil
+		},
 	}
 
 	rootCmd.PersistentFlags().BoolVar(&opts.pretty, "pretty", false, "enable pretty console logging")

@@ -16,7 +16,7 @@ type searchOptions struct {
 	symbolBoost string
 }
 
-func newSearchCommand(_ *globalOptions) *cobra.Command {
+func newSearchCommand(globals *globalOptions) *cobra.Command {
 	opts := &searchOptions{}
 
 	cmd := &cobra.Command{
@@ -34,6 +34,11 @@ func newSearchCommand(_ *globalOptions) *cobra.Command {
 				return err
 			}
 
+			provider, err := resolveProvider(opts.provider, globals.config)
+			if err != nil {
+				return err
+			}
+
 			query := args[0]
 			targetPath := resolvePath(args[1:], opts.project, opts.directory)
 			newCommandLogger(cmd).Info().
@@ -42,6 +47,8 @@ func newSearchCommand(_ *globalOptions) *cobra.Command {
 				Str("path", targetPath).
 				Int("limit", opts.limit).
 				Str("provider", opts.provider).
+				Str("provider_name", provider.GetName()).
+				Int("provider_dimensions", provider.GetDimensions()).
 				Msg("search scaffold")
 			return nil
 		},

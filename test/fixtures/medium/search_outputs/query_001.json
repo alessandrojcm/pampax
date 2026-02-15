@@ -1,0 +1,247 @@
+{
+  "query": "create stripe checkout session",
+  "success": true,
+  "searchType": "hybrid",
+  "intentionResults": 0,
+  "vectorResults": 10,
+  "provider": "Transformers.js (Local)",
+  "scope": {
+    "reranker": "off",
+    "hybrid": true,
+    "bm25": true,
+    "symbol_boost": true
+  },
+  "reranker": "off",
+  "hybrid": {
+    "enabled": true,
+    "bm25Enabled": true,
+    "fused": true,
+    "bm25Candidates": 41
+  },
+  "symbolBoost": {
+    "enabled": true,
+    "boosted": true
+  },
+  "results": [
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/async-dispose.test.js",
+      "sha": "5a3ec48918069e2ee71d58ee22831be4fc402f36",
+      "data": null,
+      "meta": {
+        "id": "test/async-dispose.test.js:t:5a3ec489",
+        "symbol": "t",
+        "score": 0.4167787630846389,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.11677876308463891,
+        "hybridScore": 0.01639344262295082,
+        "vectorRank": 0,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "lib/logger-pino.js",
+      "sha": "833584111a93d54f1ec2a9f99531daa36923c81e",
+      "data": null,
+      "meta": {
+        "id": "lib/logger-pino.js:createPinoLogger_partgroup_19funcs:83358411",
+        "symbol": "createPinoLogger_partgroup_19funcs",
+        "score": 0.3763144568001024,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.20131445680010235,
+        "hybridScore": 0.016129032258064516,
+        "vectorRank": 1,
+        "symbolBoost": 0.075,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/internals/logger.test.js",
+      "sha": "071c4b57eed43ad0fd6b61451e5e1822da8c2127",
+      "data": null,
+      "meta": {
+        "id": "test/internals/logger.test.js:checkId_partgroup_79funcs:071c4b57",
+        "symbol": "checkId_partgroup_79funcs",
+        "score": 0.3704073133978317,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.19540731339783166,
+        "hybridScore": 0.015873015873015872,
+        "vectorRank": 2,
+        "symbolBoost": 0.075,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/put.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/put.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.35648517055794116,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.05648517055794117,
+        "hybridScore": 0.015625,
+        "vectorRank": 3,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/patch.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/patch.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.3547354688637444,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.05473546886374443,
+        "hybridScore": 0.015384615384615385,
+        "vectorRank": 4,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/patch.error-handler.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/patch.error-handler.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.3492388708409409,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.0492388708409409,
+        "hybridScore": 0.015151515151515152,
+        "vectorRank": 5,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/async-dispose.test.js",
+      "sha": "9b85d057e10914fd03ec8278d4942bb12b3e339a",
+      "data": null,
+      "meta": {
+        "id": "test/async-dispose.test.js:t:9b85d057",
+        "symbol": "t",
+        "score": 0.34834859443939875,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.048348594439398755,
+        "hybridScore": 0.014925373134328358,
+        "vectorRank": 6,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/async-dispose.test.js",
+      "sha": "4c366a1c0c5309ae5e835c5b6c0e8f261b9429a8",
+      "data": null,
+      "meta": {
+        "id": "test/async-dispose.test.js:t:4c366a1c",
+        "symbol": "t",
+        "score": 0.3472937627269459,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.04729376272694591,
+        "hybridScore": 0.014705882352941176,
+        "vectorRank": 7,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/options.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/options.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.3454520676862231,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.0454520676862231,
+        "hybridScore": 0.014492753623188406,
+        "vectorRank": 8,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/put.error-handler.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/put.error-handler.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.34420225515408925,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.044202255154089244,
+        "hybridScore": 0.014285714285714285,
+        "vectorRank": 9,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    }
+  ]
+}

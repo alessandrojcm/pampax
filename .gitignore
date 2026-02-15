@@ -58,6 +58,12 @@ go.sum
 *.dylib
 *.test
 *.out
+# Go binaries
+go-port/cmd/pampax/pampax
+# Go test cache
+go-port/**/*.test
+# Go coverage
+go-port/coverage.out
 
 # Base de datos y chunks locales (no commitear)
 .pampa/

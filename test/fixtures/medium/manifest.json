@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-01-28T16:37:29.482Z",
+  "pampax_version": "1.17.1",
+  "node_version": "v22.22.0",
+  "platform": {
+    "os": "Linux 6.12.54-linuxkit",
+    "arch": "arm64",
+    "cpu_model": "unknown",
+    "cpu_cores": 10,
+    "total_memory_gb": "7.65"
+  },
+  "embedding": {
+    "provider": "transformers",
+    "model": "Xenova/all-MiniLM-L6-v2",
+    "dimensions": 384
+  },
+  "git_commit": "3f1b6044599f1855e65c069ed98a1fb733cdfd2c",
+  "repository": {
+    "path": "/pampax/test-repos/fastify",
+    "total_chunks": 606,
+    "chunks_by_language": {
+      "javascript": 381,
+      "markdown": 96,
+      "typescript": 129
+    }
+  },
+  "index_command": "pampax index \"/pampax/test-repos/fastify\" --provider transformers",
+  "artifacts": {
+    "database": ".pampa/pampa.db",
+    "chunks_directory": ".pampa/chunks/",
+    "codemap": "pampa.codemap.json",
+    "search_outputs": "search_outputs/"
+  }
+}

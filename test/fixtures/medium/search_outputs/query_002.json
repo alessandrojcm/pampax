@@ -1,0 +1,223 @@
+{
+  "query": "synchronize cart totals",
+  "success": true,
+  "searchType": "vector",
+  "intentionResults": 0,
+  "vectorResults": 10,
+  "provider": "Transformers.js (Local)",
+  "scope": {
+    "reranker": "off",
+    "hybrid": true,
+    "bm25": true,
+    "symbol_boost": true
+  },
+  "reranker": "off",
+  "hybrid": {
+    "enabled": true,
+    "bm25Enabled": true,
+    "fused": false,
+    "bm25Candidates": 0
+  },
+  "symbolBoost": {
+    "enabled": true,
+    "boosted": true
+  },
+  "results": [
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/async-dispose.test.js",
+      "sha": "5a3ec48918069e2ee71d58ee22831be4fc402f36",
+      "data": null,
+      "meta": {
+        "id": "test/async-dispose.test.js:t:5a3ec489",
+        "symbol": "t",
+        "score": 0.3682873331199501,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": 0.0682873331199501,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/async-dispose.test.js",
+      "sha": "4c366a1c0c5309ae5e835c5b6c0e8f261b9429a8",
+      "data": null,
+      "meta": {
+        "id": "test/async-dispose.test.js:t:4c366a1c",
+        "symbol": "t",
+        "score": 0.36197737550108283,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": 0.06197737550108286,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/async-dispose.test.js",
+      "sha": "9b85d057e10914fd03ec8278d4942bb12b3e339a",
+      "data": null,
+      "meta": {
+        "id": "test/async-dispose.test.js:t:9b85d057",
+        "symbol": "t",
+        "score": 0.3502514468592669,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": 0.05025144685926694,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/http-methods/trace.test.js",
+      "sha": "94b97e8f043f7c74871faf741a55a4a9fe589bf4",
+      "data": null,
+      "meta": {
+        "id": "test/http-methods/trace.test.js:t:94b97e8f",
+        "symbol": "t",
+        "score": 0.29853038686866834,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": -0.0014696131313316286,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/patch.error-handler.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/patch.error-handler.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.29835933726276087,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": -0.001640662737239107,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/patch.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/patch.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.28474974616960513,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": -0.015250253830394855,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/http-methods/trace.test.js",
+      "sha": "bfd6ae4a00e3c8076c20290fc0390da011969a44",
+      "data": null,
+      "meta": {
+        "id": "test/http-methods/trace.test.js:t:bfd6ae4a",
+        "symbol": "t",
+        "score": 0.2733743524681723,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": -0.02662564753182768,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/http-methods/trace.test.js",
+      "sha": "e1df576afdf031fd5e0b220cb587af4e6c122adc",
+      "data": null,
+      "meta": {
+        "id": "test/http-methods/trace.test.js:t:e1df576a",
+        "symbol": "t",
+        "score": 0.26340639460983606,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": -0.036593605390163916,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/put.error-handler.test.js",
+      "sha": "0f261603e483eff995c83c3682c6d95e772ac048",
+      "data": null,
+      "meta": {
+        "id": "test/put.error-handler.test.js:t:0f261603",
+        "symbol": "t",
+        "score": 0.26050465774364356,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": -0.03949534225635644,
+        "symbolBoost": 0.3,
+        "symbolBoostSources": [
+          "signature"
+        ]
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/sync-routes.test.js",
+      "sha": "febf19faff3e9ea96f3c1234a7d8c981c0e7862c",
+      "data": null,
+      "meta": {
+        "id": "test/sync-routes.test.js:expression_statement_group_23_undefined_partgroup_23funcs:febf19fa",
+        "symbol": "expression_statement_group_23_undefined_partgroup_23funcs",
+        "score": 0.2503852978310441,
+        "intent": null,
+        "description": null,
+        "searchType": "vector",
+        "vectorScore": 0.15038529783104407
+      }
+    }
+  ]
+}

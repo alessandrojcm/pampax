@@ -1,7 +1,12 @@
 package main
 
 import (
+	"fmt"
+
+	"github.com/alessandrojcm/pampax-go/internal/config"
+	"github.com/alessandrojcm/pampax-go/internal/providers"
 	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 )
 
@@ -13,9 +18,8 @@ type reindexOptions struct {
 	directory     string
 }
 
-func newCommandLogger(cmd *cobra.Command) *zerolog.Logger {
-	logger := zerolog.New(cmd.OutOrStdout()).With().Timestamp().Logger()
-	return &logger
+func newCommandLogger(_ *cobra.Command) *zerolog.Logger {
+	return &log.Logger
 }
 
 func addReindexFlags(cmd *cobra.Command, opts *reindexOptions) {
@@ -26,8 +30,40 @@ func addReindexFlags(cmd *cobra.Command, opts *reindexOptions) {
 	cmd.Flags().StringVar(&opts.directory, "directory", "", "alias for project directory")
 }
 
-func runReindexScaffold(cmd *cobra.Command, args []string, commandName string, opts *reindexOptions) error {
+func buildProviderConfig(cfg *config.Config) providers.FactoryConfig {
+	if cfg == nil {
+		return providers.FactoryConfig{}
+	}
+
+	return providers.FactoryConfig{
+		OpenAIAPIKey:         cfg.OpenAIAPIKey,
+		OpenAIBaseURL:        cfg.OpenAIBaseURL,
+		OpenAIEmbeddingModel: cfg.OpenAIEmbeddingModel,
+		TransformersModel:    cfg.TransformersModel,
+		OllamaBaseURL:        cfg.OllamaBaseURL,
+		OllamaModel:          cfg.OllamaModel,
+		CohereAPIKey:         cfg.CohereAPIKey,
+		CohereModel:          cfg.CohereModel,
+		Dimensions:           cfg.Dimensions,
+	}
+}
+
+func resolveProvider(requested string, cfg *config.Config) (providers.EmbeddingProvider, error) {
+	provider, err := providers.NewEmbeddingProvider(requested, buildProviderConfig(cfg))
+	if err != nil {
+		return nil, fmt.Errorf("resolve embedding provider: %w", err)
+	}
+
+	return provider, nil
+}
+
+func runReindexScaffold(cmd *cobra.Command, args []string, commandName string, opts *reindexOptions, globals *globalOptions) error {
 	if err := validateToggle("encrypt", opts.encrypt); err != nil {
+		return err
+	}
+
+	provider, err := resolveProvider(opts.provider, globals.config)
+	if err != nil {
 		return err
 	}
 
@@ -36,6 +72,8 @@ func runReindexScaffold(cmd *cobra.Command, args []string, commandName string, o
 		Str("command", commandName).
 		Str("path", targetPath).
 		Str("provider", opts.provider).
+		Str("provider_name", provider.GetName()).
+		Int("provider_dimensions", provider.GetDimensions()).
 		Str("encrypt", opts.encrypt).
 		Msg(commandName + " scaffold")
 

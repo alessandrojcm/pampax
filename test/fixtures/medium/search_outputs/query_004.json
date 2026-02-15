@@ -1,0 +1,210 @@
+{
+  "query": "render invoice pdf",
+  "success": true,
+  "searchType": "hybrid",
+  "intentionResults": 0,
+  "vectorResults": 10,
+  "provider": "Transformers.js (Local)",
+  "scope": {
+    "reranker": "off",
+    "hybrid": true,
+    "bm25": true,
+    "symbol_boost": true
+  },
+  "reranker": "off",
+  "hybrid": {
+    "enabled": true,
+    "bm25Enabled": true,
+    "fused": true,
+    "bm25Candidates": 2
+  },
+  "symbolBoost": {
+    "enabled": true,
+    "boosted": false
+  },
+  "results": [
+    {
+      "type": "code",
+      "lang": "typescript",
+      "path": "types/server-factory.d.ts",
+      "sha": "428d6d619dd7d9ebcd186ae353291a7b4ec22616",
+      "data": null,
+      "meta": {
+        "id": "types/server-factory.d.ts:http:428d6d61",
+        "symbol": "http",
+        "score": 0.1569699344899384,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.1569699344899384,
+        "hybridScore": 0.01639344262295082,
+        "vectorRank": 0
+      }
+    },
+    {
+      "type": "code",
+      "lang": "typescript",
+      "path": "test/types/fastify.test-d.ts",
+      "sha": "9b0508ad73ec2ae6fcf9df5927fa59d249a8e489",
+      "data": null,
+      "meta": {
+        "id": "test/types/fastify.test-d.ts:validate_partgroup_102funcs:9b0508ad",
+        "symbol": "validate_partgroup_102funcs",
+        "score": 0.14343388517848737,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.14343388517848737,
+        "hybridScore": 0.016129032258064516,
+        "vectorRank": 1
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "lib/req-id-gen-factory.js",
+      "sha": "e98a9ed2697d13fd2afa3d692c7de09d73d64659",
+      "data": null,
+      "meta": {
+        "id": "lib/req-id-gen-factory.js:genReqId:e98a9ed2",
+        "symbol": "genReqId",
+        "score": 0.13195495018411874,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.13195495018411874,
+        "hybridScore": 0.015873015873015872,
+        "vectorRank": 2
+      }
+    },
+    {
+      "type": "code",
+      "lang": "typescript",
+      "path": "types/plugin.d.ts",
+      "sha": "c3f44f4ae46a99be0c7773117189b27eeae23959",
+      "data": null,
+      "meta": {
+        "id": "types/plugin.d.ts:export_statement_287:c3f44f4a",
+        "symbol": "export_statement_287",
+        "score": 0.1253349781342258,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.1253349781342258,
+        "hybridScore": 0.015625,
+        "vectorRank": 3
+      }
+    },
+    {
+      "type": "code",
+      "lang": "typescript",
+      "path": "test/types/decorate-request-reply.test-d.ts",
+      "sha": "56576e6d6b73e5d4f067403d84debc9fe0adf672",
+      "data": null,
+      "meta": {
+        "id": "test/types/decorate-request-reply.test-d.ts:expectType:56576e6d",
+        "symbol": "expectType",
+        "score": 0.12343228885830376,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.12343228885830376,
+        "hybridScore": 0.015384615384615385,
+        "vectorRank": 4
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "lib/content-type.js",
+      "sha": "eb2ca5e0027fe4619f5f5973c9a5fc388fcb20ed",
+      "data": null,
+      "meta": {
+        "id": "lib/content-type.js:constructor_partsmall_methods_13:eb2ca5e0",
+        "symbol": "constructor_partsmall_methods_13",
+        "score": 0.12333350824887505,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.12333350824887505,
+        "hybridScore": 0.015151515151515152,
+        "vectorRank": 5
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/plugin.helper.js",
+      "sha": "4c36b52c97b93efc1a0f9e679385f48f2ac55312",
+      "data": null,
+      "meta": {
+        "id": "test/plugin.helper.js:module:4c36b52c",
+        "symbol": "module",
+        "score": 0.12272788794943375,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.12272788794943375,
+        "hybridScore": 0.014925373134328358,
+        "vectorRank": 6
+      }
+    },
+    {
+      "type": "code",
+      "lang": "typescript",
+      "path": "types/reply.d.ts",
+      "sha": "74a964d973d49a530cefcf733c68f1f928e6064c",
+      "data": null,
+      "meta": {
+        "id": "types/reply.d.ts:Reply:74a964d9",
+        "symbol": "Reply",
+        "score": 0.12259021781961098,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.12259021781961098,
+        "hybridScore": 0.014705882352941176,
+        "vectorRank": 7
+      }
+    },
+    {
+      "type": "code",
+      "lang": "markdown",
+      "path": "EXPENSE_POLICY.md",
+      "sha": "e1736cd4170627417c8f7ec3bc4ad9398247c82d",
+      "data": null,
+      "meta": {
+        "id": "EXPENSE_POLICY.md:section_group_29_undefined_partgroup_29funcs:e1736cd4",
+        "symbol": "section_group_29_undefined_partgroup_29funcs",
+        "score": 0.07816627586569938,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.07816627586569938,
+        "hybridScore": 0.024726775956284155,
+        "bm25Score": 11.3328,
+        "bm25Rank": 0,
+        "vectorRank": 59
+      }
+    },
+    {
+      "type": "code",
+      "lang": "javascript",
+      "path": "test/route.7.test.js",
+      "sha": "1718e9706694cc83e384bc3260e3ad0c7e5021e0",
+      "data": null,
+      "meta": {
+        "id": "test/route.7.test.js:routes_partgroup_164funcs:1718e970",
+        "symbol": "routes_partgroup_164funcs",
+        "score": 0.004460153451171178,
+        "intent": null,
+        "description": null,
+        "searchType": "hybrid",
+        "vectorScore": 0.004460153451171178,
+        "hybridScore": 0.016129032258064516,
+        "bm25Score": 11.078,
+        "bm25Rank": 1
+      }
+    }
+  ]
+}
