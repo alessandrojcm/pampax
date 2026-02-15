@@ -74,6 +74,9 @@ func TestSearchCommandSupportsPathAndTopAlias(t *testing.T) {
 	if !strings.Contains(output, `"limit":5`) {
 		t.Fatalf("expected limit output, got %q", output)
 	}
+	if !strings.Contains(output, `"result_count":5`) {
+		t.Fatalf("expected result count output, got %q", output)
+	}
 }
 
 func TestInfoCommandRuns(t *testing.T) {

@@ -1,6 +1,11 @@
 package main
 
-import "github.com/spf13/cobra"
+import (
+	"fmt"
+
+	searchpkg "github.com/alessandrojcm/pampax-go/internal/search"
+	"github.com/spf13/cobra"
+)
 
 type searchOptions struct {
 	provider    string
@@ -41,7 +46,26 @@ func newSearchCommand(globals *globalOptions) *cobra.Command {
 
 			query := args[0]
 			targetPath := resolvePath(args[1:], opts.project, opts.directory)
-			newCommandLogger(cmd).Info().
+
+			candidates, err := buildSearchStubCandidates(provider)
+			if err != nil {
+				return err
+			}
+
+			results, err := searchpkg.Search(query, searchpkg.SearchOptions{
+				Provider:    provider,
+				Candidates:  candidates,
+				Limit:       opts.limit,
+				Hybrid:      opts.hybrid,
+				BM25:        opts.bm25,
+				SymbolBoost: opts.symbolBoost,
+				Reranker:    opts.reranker,
+			})
+			if err != nil {
+				return err
+			}
+
+			logger := newCommandLogger(cmd).Info().
 				Str("command", "search").
 				Str("query", query).
 				Str("path", targetPath).
@@ -49,7 +73,15 @@ func newSearchCommand(globals *globalOptions) *cobra.Command {
 				Str("provider", opts.provider).
 				Str("provider_name", provider.GetName()).
 				Int("provider_dimensions", provider.GetDimensions()).
-				Msg("search scaffold")
+				Int("result_count", len(results))
+
+			if len(results) > 0 {
+				logger = logger.
+					Str("top_result_id", results[0].ID).
+					Float64("top_result_score", results[0].Score)
+			}
+
+			logger.Msg("search scaffold")
 			return nil
 		},
 	}
@@ -68,4 +100,31 @@ func newSearchCommand(globals *globalOptions) *cobra.Command {
 	cmd.Flags().StringVar(&opts.symbolBoost, "symbol_boost", "on", "symbol-aware ranking boost (on|off)")
 
 	return cmd
+}
+
+func buildSearchStubCandidates(provider searchpkg.EmbeddingProvider) ([]searchpkg.Candidate, error) {
+	texts := []string{
+		"repository overview and architecture",
+		"authentication and login flow",
+		"embedding provider configuration",
+		"database schema and migrations",
+		"chunk storage and encryption",
+		"search ranking and relevance scoring",
+	}
+
+	candidates := make([]searchpkg.Candidate, 0, len(texts))
+	for i, text := range texts {
+		embedding, err := provider.GenerateEmbedding(text)
+		if err != nil {
+			return nil, fmt.Errorf("generate search stub candidate embedding: %w", err)
+		}
+
+		candidates = append(candidates, searchpkg.Candidate{
+			ID:        fmt.Sprintf("stub-%02d", i+1),
+			Path:      fmt.Sprintf("stub/doc-%02d.md", i+1),
+			Embedding: embedding,
+		})
+	}
+
+	return candidates, nil
 }

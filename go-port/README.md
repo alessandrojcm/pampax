@@ -52,8 +52,12 @@ github.com/alessandrojcm/pampax-go/
 - Stage 3A (CLI Commands): complete
 - Stage 3B (Config & Logging): complete
 - Stage 4A (Provider Stubs): complete
+- Stage 4B (Search Stub): complete
+- Stage 5A (Compatibility Tests): complete
+- Stage 5B (Unit Tests): complete
+- Stage 6 (Index Update & Verification): complete
 
-**Next:** Stage 4B - Search Stub
+**Next:** Stage 1 wrap-up / cross-implementation validation
 
 ## Installation
 

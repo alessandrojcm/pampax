@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "created_at": "2026-01-28T16:40:34Z",
+    "pampax_version": "1.17.1",
+    "node_version": "v22.22.0",
+    "architecture": "aarch64",
+    "platform": "linux",
+    "os": "Debian GNU/Linux 11 (bullseye)",
+    "cpu_cores": 10,
+    "memory_gb": 7.7,
+    "environment": "Docker (Node 22 base image)",
+    "test_framework": "node:test",
+    "benchmark_file": "test/benchmarks/bench.test.js"
+  },
+  "configuration": {
+    "scenarios": [
+      {
+        "key": "base",
+        "name": "Base",
+        "settings": {
+          "hybrid": false,
+          "bm25": false,
+          "reranker": "off"
+        }
+      },
+      {
+        "key": "hybrid",
+        "name": "Hybrid",
+        "settings": {
+          "hybrid": true,
+          "bm25": true,
+          "reranker": "off"
+        }
+      },
+      {
+        "key": "hybrid-ce",
+        "name": "Hybrid+CE",
+        "settings": {
+          "hybrid": true,
+          "bm25": true,
+          "reranker": "transformers"
+        }
+      }
+    ],
+    "test_data": {
+      "fixture_source": "test/benchmarks/fixtures/",
+      "chunk_count": "synthetic (fixture-based)",
+      "query_count": "synthetic (fixture-based)",
+      "embedding_dimensions": 4,
+      "embedding_provider": "TestProvider (mock)"
+    }
+  },
+  "results": {
+    "base": {
+      "precision_at_1": 0.750,
+      "mrr_at_5": 0.750,
+      "ndcg_at_10": 0.829
+    },
+    "hybrid": {
+      "precision_at_1": 0.750,
+      "mrr_at_5": 0.800,
+      "ndcg_at_10": 0.847
+    },
+    "hybrid_ce": {
+      "precision_at_1": 0.750,
+      "mrr_at_5": 0.875,
+      "ndcg_at_10": 0.908
+    }
+  },
+  "improvements": {
+    "hybrid_vs_base": {
+      "precision_at_1": "0.0% (0.750 → 0.750)",
+      "mrr_at_5": "+6.7% (0.750 → 0.800)",
+      "ndcg_at_10": "+2.2% (0.829 → 0.847)"
+    },
+    "hybrid_ce_vs_hybrid": {
+      "precision_at_1": "0.0% (0.750 → 0.750)",
+      "mrr_at_5": "+9.4% (0.800 → 0.875)",
+      "ndcg_at_10": "+7.2% (0.847 → 0.908)"
+    },
+    "hybrid_ce_vs_base": {
+      "precision_at_1": "0.0% (0.750 → 0.750)",
+      "mrr_at_5": "+16.7% (0.750 → 0.875)",
+      "ndcg_at_10": "+9.5% (0.829 → 0.908)"
+    }
+  },
+  "interpretation": {
+    "precision_at_1": "Top-1 result accuracy is consistent (75%) across all modes",
+    "mrr_at_5": "Mean Reciprocal Rank improves significantly with hybrid search (+6.7%) and reranking (+9.4%)",
+    "ndcg_at_10": "Overall ranking quality (nDCG@10) improves progressively: Base (82.9%) → Hybrid (84.7%) → Hybrid+CE (90.8%)",
+    "key_findings": [
+      "Hybrid search (BM25 + vector) improves MRR@5 by 6.7% over vector-only search",
+      "Cross-encoder reranker provides additional 9.4% MRR@5 improvement over hybrid",
+      "Combined Hybrid+CE achieves 16.7% MRR@5 improvement and 9.5% nDCG@10 improvement over base",
+      "P@1 consistency (0.750) indicates top result quality is stable across modes"
+    ]
+  },
+  "notes": [
+    "Benchmark uses synthetic fixtures with mock embeddings (4 dimensions)",
+    "Real-world performance may vary with actual embedding models (768+ dimensions)",
+    "Test assertions expect P@1 improvement, but fixture data shows equal performance (acceptable for baseline)",
+    "This baseline establishes Node.js reference metrics for Go port comparison"
+  ],
+  "go_compatibility_requirements": {
+    "minimum_acceptable_metrics": {
+      "base_precision_at_1": 0.750,
+      "base_mrr_at_5": 0.750,
+      "base_ndcg_at_10": 0.829,
+      "hybrid_precision_at_1": 0.750,
+      "hybrid_mrr_at_5": 0.800,
+      "hybrid_ndcg_at_10": 0.847
+    },
+    "tolerance": {
+      "precision_at_1": "±0.001 (exact match preferred)",
+      "mrr_at_5": "±0.001 (exact match preferred)",
+      "ndcg_at_10": "±0.001 (exact match preferred)"
+    },
+    "validation_criteria": [
+      "Go implementation must achieve identical or better metrics on same fixtures",
+      "Ranking order (top-5 results per query) should match Node.js implementation",
+      "Numeric precision differences allowed only due to floating-point rounding"
+    ]
+  }
+}
