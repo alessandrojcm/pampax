@@ -40,7 +40,8 @@
     "test:unit": "node test/test-search-code.js",
     "test:mcp": "node test/test-mcp.js",
     "test:diagnostics": "node test/pampa-diagnostics.js",
-    "bench": "node --test test/benchmarks/bench.test.js"
+    "bench": "node --test test/benchmarks/bench.test.js",
+    "baseline:discovery": "node test/fixtures/generate-discovery-baseline.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.1",
