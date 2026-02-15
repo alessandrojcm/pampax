@@ -38,6 +38,32 @@ var defaultLanguageExtensions = []string{
 	".markdown",
 }
 
+var defaultIgnorePatterns = []string{
+	"**/vendor/**",
+	"**/node_modules/**",
+	"**/.git/**",
+	"**/storage/**",
+	"**/dist/**",
+	"**/build/**",
+	"**/tmp/**",
+	"**/temp/**",
+	"**/.npm/**",
+	"**/.yarn/**",
+	"**/Library/**",
+	"**/System/**",
+	"**/.Trash/**",
+	"**/.pampa/**",
+	"**/pampa.codemap.json",
+	"**/pampa.codemap.json.backup-*",
+	"**/package-lock.json",
+	"**/yarn.lock",
+	"**/pnpm-lock.yaml",
+	"**/*.json",
+	"**/*.sh",
+	"**/examples/**",
+	"**/assets/**",
+}
+
 func DefaultSupportedExtensions() map[string]struct{} {
 	exts := make(map[string]struct{}, len(defaultLanguageExtensions))
 	for _, ext := range defaultLanguageExtensions {
@@ -45,4 +71,10 @@ func DefaultSupportedExtensions() map[string]struct{} {
 	}
 
 	return exts
+}
+
+func DefaultIgnorePatterns() []string {
+	patterns := make([]string, len(defaultIgnorePatterns))
+	copy(patterns, defaultIgnorePatterns)
+	return patterns
 }

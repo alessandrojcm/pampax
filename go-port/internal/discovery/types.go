@@ -22,6 +22,26 @@ type Matcher interface {
 	ShouldSkipFile(relativePath string) bool
 }
 
+type RuleSource string
+
+const (
+	RuleSourceNone       RuleSource = "none"
+	RuleSourceDefault    RuleSource = "default"
+	RuleSourceGitIgnore  RuleSource = "gitignore"
+	RuleSourcePampIgnore RuleSource = "pampignore"
+)
+
+type IgnoreDecision struct {
+	Path       string
+	IsDir      bool
+	Excluded   bool
+	Matched    bool
+	Source     RuleSource
+	Pattern    string
+	IgnoreFile string
+	Negated    bool
+}
+
 type WalkOptions struct {
 	Root          string
 	Workers       int

@@ -2,8 +2,6 @@ package main
 
 import (
 	"bytes"
-	"os"
-	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -20,16 +18,11 @@ func TestRootCommandHasPersistentFlags(t *testing.T) {
 }
 
 func TestIndexCommandRunsWithExpectedFlags(t *testing.T) {
-	projectDir := t.TempDir()
-	if err := os.WriteFile(filepath.Join(projectDir, "main.ts"), []byte("export const ok = true\n"), 0o644); err != nil {
-		t.Fatalf("seed temp project: %v", err)
-	}
-
 	cmd := NewRootCommand()
 	var out bytes.Buffer
 	cmd.SetOut(&out)
 	cmd.SetErr(&out)
-	cmd.SetArgs([]string{"index", projectDir, "--provider", "openai", "--encrypt", "off"})
+	cmd.SetArgs([]string{"index", "./project", "--provider", "openai", "--encrypt", "off"})
 
 	if err := cmd.Execute(); err != nil {
 		t.Fatalf("execute index command: %v", err)
