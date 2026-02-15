@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/alessandrojcm/pampax-go/internal/config"
+	"github.com/alessandrojcm/pampax-go/internal/discovery"
 	"github.com/alessandrojcm/pampax-go/internal/providers"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -68,13 +69,31 @@ func runReindexScaffold(cmd *cobra.Command, args []string, commandName string, o
 	}
 
 	targetPath := resolvePath(args, opts.project, opts.directory)
-	newCommandLogger(cmd).Info().
+	walkResult, err := discovery.Walk(discovery.WalkOptions{
+		Root:          targetPath,
+		SupportedExts: discovery.DefaultSupportedExtensions(),
+	})
+	if err != nil {
+		return fmt.Errorf("discover files: %w", err)
+	}
+
+	logger := newCommandLogger(cmd)
+	for _, warning := range walkResult.Warnings {
+		logger.Warn().
+			Str("warning_code", string(warning.Code)).
+			Str("path", warning.Path).
+			Msg(warning.Message)
+	}
+
+	logger.Info().
 		Str("command", commandName).
 		Str("path", targetPath).
 		Str("provider", opts.provider).
 		Str("provider_name", provider.GetName()).
 		Int("provider_dimensions", provider.GetDimensions()).
 		Str("encrypt", opts.encrypt).
+		Int("discovered_paths", len(walkResult.Paths)).
+		Int("discovery_warnings", len(walkResult.Warnings)).
 		Msg(commandName + " scaffold")
 
 	return nil
